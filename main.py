@@ -19,9 +19,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Wait for a number of seconds.')
     parser.add_argument('seconds', metavar='N', type=int,
                         help='the number of seconds to wait')
-    parser.add_argument('input', metavar='i', type=String,
+    parser.add_argument('input', metavar='i', type=str,
                         help='list of ints')
-    parser.add_argument('output', metavar='o', type=String,
+    parser.add_argument('output', metavar='o', type=str,
                         help='list of ints')
     args = parser.parse_args()
 
