@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 
+from time import time
 class IRDetector:
     def __init__(self, input_pins, output_pins):
         self.input_pins = input_pins
@@ -16,9 +17,12 @@ class IRDetector:
         t0 = time() # time is in seconds here
         results = []
         while (time() - t0) < duration:
-            results = []
-            results.append(self.detect())
-            [ output(1) for x in results if x != 0 ] 
+            results = self.detect()
+            for x in results:
+                if x != 0:
+                    print("Detected")
+                    self.output(1)
+                
     def detect(self):
         readings = [GPIO.input(pin) for pin in self.input_pins]
         return tuple(readings)
