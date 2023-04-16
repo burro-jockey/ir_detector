@@ -5,7 +5,7 @@ class IRDetector:
     def __init__(self, input_pins, output_pins):
         self.input_pins = input_pins
         self.output_pins = output_pins
-        
+        self.detections = 0 
         # Set up GPIO
         GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
@@ -21,6 +21,7 @@ class IRDetector:
             for x in results:
                 if x != 0:
                     print("Detected")
+                    self.detections += 1
                     self.output()
                 
     def detect(self):
@@ -38,4 +39,5 @@ class IRDetector:
 
     def cleanup(self):
         self.output()
+        print(f"Detected {self.detections} times.\n Using {self.input_pins} as input and {self.output_pins} as output pins. \n Thanks for running! {self.detections}")
         GPIO.cleanup()
