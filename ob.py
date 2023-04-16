@@ -19,7 +19,7 @@ class IRDetector:
         while (time() - t0) < duration:
             results = self.detect()
             for x in results:
-                if x != 1:
+                if x != 0:
                     print("Detected")
                     self.output()
                 
@@ -31,7 +31,7 @@ class IRDetector:
             values = [GPIO.HIGH for pin in self.output_pins]
         for i, pin in enumerate(self.output_pins):
             GPIO.output(pin, values[i])
-        sleep(0.1)
+        sleep(0.4)
         values = [GPIO.LOW for pin in self.output_pins]
         for i, pin in enumerate(self.output_pins):
             GPIO.output(pin, values[i])

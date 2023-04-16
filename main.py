@@ -6,7 +6,7 @@ from ob import IRDetector
 def main(seconds = 30): 
     # do stuff
     
-    detcor = IRDetector([11], [13, 15])
+    detcor = IRDetector([11 , 15], [ 13])
     detcor.run_for_duration(seconds)
     detcor.cleanup()
     print("Thanks for running!")
