@@ -25,7 +25,12 @@ class IRDetector:
                     self.output()
                 
     def detect(self):
-        readings = [GPIO.input(pin) for pin in self.input_pins]
+        readings = []
+        for pin in self.input_pins:
+            if(pin != 11):
+                readings.append(GPIO.input(pin))
+            else:
+                readings.append(not GPIO.input(pin))
         print(readings)
         return tuple(readings)
     def output(self, values = None):
