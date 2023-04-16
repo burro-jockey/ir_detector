@@ -19,7 +19,7 @@ class IRDetector:
         while (time() - t0) < duration:
             results = self.detect()
             for x in results:
-                if x != 0:
+                if x != 1:
                     print("Detected")
                     self.detections += 1
                     self.output()
