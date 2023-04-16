@@ -21,7 +21,7 @@ class IRDetector:
             for x in results:
                 if x != 0:
                     print("Detected")
-                    self.output([1])
+                    self.output([1 for x in self.output_pins])
                 
     def detect(self):
         readings = [GPIO.input(pin) for pin in self.input_pins]
