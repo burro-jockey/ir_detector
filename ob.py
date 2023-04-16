@@ -32,6 +32,7 @@ class IRDetector:
             values = [1 for pin in self.output_pins]
         for i, pin in enumerate(self.output_pins):
             GPIO.output(pin, values[i])
+        time.sleep(0.1)
 
     def cleanup(self):
         self.output()
