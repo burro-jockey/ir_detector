@@ -19,11 +19,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Wait for a number of seconds.')
     parser.add_argument('seconds', metavar='N', type=int,
                         help='the number of seconds to wait')
-    parser.add_argument('input', metavar='i', type=[int],
+    parser.add_argument('input', metavar='i', type=String,
                         help='list of ints')
-    parser.add_argument('output', metavar='o', type=[int],
+    parser.add_argument('output', metavar='o', type=String,
                         help='list of ints')
     args = parser.parse_args()
 
     # Call the main function with the number of seconds
-    main(args.seconds)
+    main(args.seconds, [int(x) for x in args.input.split(" ")] , [int(x) for x in args.output.split(" ")])
