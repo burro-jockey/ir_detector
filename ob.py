@@ -21,15 +21,16 @@ class IRDetector:
             for x in results:
                 if x != 0:
                     print("Detected")
-                    self.output([1 for x in self.output_pins])
+                    self.output()
                 
     def detect(self):
         readings = [GPIO.input(pin) for pin in self.input_pins]
         return tuple(readings)
 
-    def output(self, values):
+    def output(self, values = [1 for x in self.output_pins]):
         for i, pin in enumerate(self.output_pins):
             GPIO.output(pin, values[i])
 
     def cleanup(self):
+        self.output()
         GPIO.cleanup()
