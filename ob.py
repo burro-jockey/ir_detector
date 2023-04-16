@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 
-from time import time
+from time import time, sleep
 class IRDetector:
     def __init__(self, input_pins, output_pins):
         self.input_pins = input_pins
@@ -32,7 +32,7 @@ class IRDetector:
             values = [1 for pin in self.output_pins]
         for i, pin in enumerate(self.output_pins):
             GPIO.output(pin, values[i])
-        time.sleep(0.1)
+        sleep(0.1)
 
     def cleanup(self):
         self.output()
