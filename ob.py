@@ -26,6 +26,7 @@ class IRDetector:
                 
     def detect(self):
         readings = [GPIO.input(pin) for pin in self.input_pins]
+        print(readings)
         return tuple(readings)
     def output(self, values = None):
         if(values is None):
@@ -39,5 +40,5 @@ class IRDetector:
 
     def cleanup(self):
         self.output()
-        print(f'Detected {self.detections} times.\n Using {self.input_pins} as input and {self.output_pins} as output pins. \n Thanks for running!')
+        print( f'Detected {self.detections} times.\n Using {self.input_pins} as input and {self.output_pins} as output pins. \n Thanks for running!')
         GPIO.cleanup()
