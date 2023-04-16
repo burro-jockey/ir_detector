@@ -39,5 +39,5 @@ class IRDetector:
 
     def cleanup(self):
         self.output()
-        print(f"Detected {self.detections} times.\n Using {self.input_pins} as input and {self.output_pins} as output pins. \n Thanks for running! {self.detections}")
+        print(f'Detected {self.detections} times.\n Using {self.input_pins} as input and {self.output_pins} as output pins. \n Thanks for running!')
         GPIO.cleanup()
